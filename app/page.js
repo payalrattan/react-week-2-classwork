@@ -26,10 +26,7 @@ export default function Home() {
   );
 
   //for counter
-  const [countIncrement, setCountIncrement] = useState(0);
-  const increment = () => {
-    setCountIncrement(countIncrement + 1);
-  };
+  const [count, setCount] = useState(0);
   return (
     <div className="mainContainer">
       <CardComponent
@@ -42,7 +39,6 @@ export default function Home() {
         className="button-main"
         text={showDetails ? "Hide add. Info" : "Show add. Info"}
         onClick={() => setShowDetails(!showDetails)}
-
       />
       {showDetails && additionalInfo}
 
@@ -53,13 +49,20 @@ export default function Home() {
         onClick={() => alert(`Hello ${user}, Welcome to your dashboard!!!!!`)}
       />
       {/* counter component part-5 */}
-      <div className="counter">Followers: {countIncrement}</div>
+      <div className="counter">Followers: {count}</div>
       <button
         type="button"
         className="button-main"
-        onClick={increment}
+        onClick={() => setCount(count + 1)}
       >
         Follow
+      </button>
+      <button
+        type="button"
+        className="button-main"
+        onClick={() => setCount(count -1)}
+      >
+        UnFollow
       </button>
     </div>
   );
