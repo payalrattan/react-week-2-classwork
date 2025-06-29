@@ -1,6 +1,6 @@
-
 import "./globals.css";
-
+import { Header } from "@/components/header/header";
+import { Footer } from "@/components/footer/Footer";
 
 
 export const metadata = {
@@ -11,9 +11,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body >
-        <main> {children}</main>
-       <footer className="footer">Footer</footer>
+      <body>
+        <Header />
+        <main style={{ paddingTop: "60px", paddingBottom: "40px" }}>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
